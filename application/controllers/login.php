@@ -16,10 +16,10 @@ class Login extends CI_Controller {
 			$data = $this->model_login->selectByUsername($this->input->post('username'))->row_array();
 
 			$userdata = array(
-				'id_username' => $data['id_username'], 
+				'id' => $data['id'], 
+				'nama' => $data['nama'],
 				'username' => $data['username'], 
-				'password' => $data['password'], 
-				'nama_lengkap' => $data['nama_lengkap'],
+				'password' => md5($data['password']), 
 				'logged_in' => true		 
 			);
 
@@ -34,6 +34,4 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('login');
 	}
-
-
 }
