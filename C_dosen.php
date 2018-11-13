@@ -14,7 +14,6 @@ class C_Dosen extends CI_Controller {
 	// proses untuk menambah data
 	public function insert(){
 		//mengambil data sesuai inputan pada form V_input
-		$data['id_dosen'] = $this->input->post('id_dosen');
 		$data['nip'] = $this->input->post('nip');
 		$data['nama'] = $this->input->post('nama');
 		$data['matkul'] = $this->input->post('matkul');
@@ -23,41 +22,38 @@ class C_Dosen extends CI_Controller {
 		//memasukan data yang sudah diinput di form V_input ke database
 		$this->M_Dosen->insert($data);
 
+		$this->load->view('V_Dosen2');
+
 		//membuka kembali controller C_pekerja
-		redirect(site_url('C_dosen'));		
+		redirect(site_url('C_Dosen'));		
 	}
 
 	// proses untuk pindah ke view V_edit
-	public function edit($id){
-	  if($this->input->post('submit')){ 
-	   if($this->M_Dosen->validation("save")){ 
-	    $this->M_Dosen->save(); 
-	    redirect('C_Dosen');
-	   }
-  }
-  
-  $this->load->view('dosen/form_tambah');
+	public function fedit($id_dosen){	
+	$data['db_siak'] = $this->M_Dosen->selectById($id_dosen)->row_array();
+
+	$this->load->view('V_Dosen3', $data);
 	}
 
 	// proses untuk merubah/mengedit data pada database
-	public function update($id){
+	public function update($id_dosen){
 		//mengambil data sesuai inputan pada form V_edit
-		$data['id_dosen'] = $this->input->post('ID');
-		$data['nip'] = $this->input->post('NIP');
-		$data['nama'] = $this->input->post('Nama Dosen');
-		$data['matkul'] = $this->input->post('Mata Kuliah Yang Di Ampu');
+		$data['id_dosen'] = $this->input->post('id_dosen');
+		$data['nip'] = $this->input->post('nip');
+		$data['nama'] = $this->input->post('nama');
+		$data['matkul'] = $this->input->post('matkul');
 
 		//merubah data yang sudah diinput di form V_edit ke database
-		$this->M_dosen->update($id, $data);
+		$this->M_Dosen->update($id_dosen, $data);
 
 		//membuka kembali controller C_pekerja
 		redirect(site_url('C_Dosen'));
 	}
 
 	// proses untuk menghapus data pada database
-	public function hapus($id){
+	public function hapus($id_dosen){
 		//mengambil id yang di kirimkan dari V_input
-		$this->M_dosen->delete($id);
+		$this->M_Dosen->hapus($id_dosen);
 
 		//membuka kembali controller C_pekerja
 		redirect(site_url('C_Dosen'));

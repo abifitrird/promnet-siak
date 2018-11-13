@@ -85,9 +85,9 @@
                         <li>
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Dosen</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="<?php echo site_url('C_dosen')?>"><span class="mini-sub-pro">List Dosen</span></a></li>
-                                <li><a title="Add Professor" href="<?php echo site_url('C_dosen')?>"><span class="mini-sub-pro">Tambah Dosen</span></a></li>
-                                <li><a title="Edit Professor" href="<?php echo site_url('C_dosen')?>"><span class="mini-sub-pro">Edit Dosen</span></a></li>
+                                <li><a title="All Professors" href="<?php echo site_url('C_Dosen')?>"><span class="mini-sub-pro">List Dosen</span></a></li>
+                                <li><a title="Add Professor" href="<?php echo site_url('C_Dosen/insert')?>"><span class="mini-sub-pro">Tambah Dosen</span></a></li>
+                                <li><a title="Edit Professor" href="<?php echo site_url('C_Dosen/update')?>"><span class="mini-sub-pro">Edit Dosen</span></a></li>
                                 <li><a title="Professor Profile" href="<?php echo site_url('C_dosen')?>"><span class="mini-sub-pro">Profil Dosen</span></a></li>
                             </ul>
                         </li>

@@ -38,7 +38,7 @@ class M_Dosen extends CI_model
 	}
 
 	// //menghapus data pada tabel data_mahasiswa
-	function delete($id){
+	function hapus($id){
 		$this->db->where('id_dosen',$id);
 		$this->db->delete('tb_dosen');
 	}
